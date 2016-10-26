@@ -5,17 +5,12 @@ Backend: Node.js, Express, MongoDB
 
 Frontend: Backbone.js
 
-    $ npm init
+####Server start
 
-####npm dependencies:
+    $ npm install
 
-    $ npm install mongoose --save
-    $ npm install body-parser --save
-    $ npm install express --save
+    npm start
 
-####install mongoDB
-
-    $ sudo apt-get install mongodb
 
 ####Basic shell commands:
 
@@ -38,4 +33,5 @@ Frontend: Backbone.js
 
   It allows developers a way of being able to debug and analyze an Http request/response. You can select methods for making request, such as GET, POST, PUT, DELETE and use in our workshop.
 
+![alt text](https://github.com/domazet93/RESTful-API/blob/master/restEasy.gif)
 
