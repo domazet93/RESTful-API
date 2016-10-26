@@ -1,0 +1,33 @@
+{
+  "name": "rest_api",
+  "version": "1.0.0",
+  "description": "RESTful API with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domazet93/RESTful-API"
+  },
+  "keywords": [
+    "restAPI"
+  ],
+  "author": "Toni Domazet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/domazet93/RESTful-NODE.js/issues"
+  },
+  "homepage": "https://github.com/domazet93/RESTful-NODE.js#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.4"
+  },
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "eslint-config-standard": "^6.2.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1"
+  }
+}
