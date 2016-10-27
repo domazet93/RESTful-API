@@ -10,7 +10,7 @@ var genreSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
-})
+});
 
 var Genre = module.exports = mongoose.model("Genre", genreSchema);
 //This object can be used from outside

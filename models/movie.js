@@ -51,7 +51,7 @@ module.exports.getMovieByID = function (id, callback) {
     Movie.findById(id, callback);
 };
 module.exports.addMovie = function (movie, callback) {
-    Movie.create(movie, callback);
+    Movie.create("movie", callback);
 };
 module.exports.updateMovie = function (id, movie, options, callback) {
     var query = {
@@ -68,7 +68,7 @@ module.exports.updateMovie = function (id, movie, options, callback) {
     };
     Movie.findOneAndUpdate(query, update, options, callback);
 
-}
+};
 module.exports.deleteMovie = function (id, callback) {
     var query = {
         _id: id

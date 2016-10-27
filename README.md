@@ -5,12 +5,21 @@ Backend: Node.js, Express, MongoDB
 
 Frontend: Backbone.js
 
-####Server start
+###Server start
 
     $ npm install
 
     npm start
 
+###Run test
+
+    $ npm test
+
+###Start mongo in shell
+
+    $ mongo
+
+    > use cinema
 
 ####Basic shell commands:
 
