@@ -31,8 +31,8 @@ Frontend: Backbone.js
       > db.dropDatabase()
     *show collections in current db
       > show collections
-    *create collection: Books and Genres
-        > db.createCollection('books')
+    *create collection: Genres and Movies
+        > db.createCollection('genres')
         > db.createCollection('movies')
     *delete by ID
         > db.movies.remove({_id: ObjectId("4f6f244f6f35438788aa138f")});

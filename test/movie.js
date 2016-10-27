@@ -7,15 +7,13 @@ var Movie = require("../models/movie"),
 describe("Movie", function() {
 
     before(function(done) {
-    db = mongoose.connect("mongodb://localhost/test");
+        db = mongoose.connect("mongodb://localhost/test");
         done();
     });
-
     after(function(done) {
         mongoose.connection.close();
         done();
     });
-
     beforeEach(function(done) {
         var movie = new Movie({
             title: "The Godfather",
@@ -26,14 +24,12 @@ describe("Movie", function() {
             image_url:"https://lh5.ggpht.com/koXV4NUZ7rRjm6LbBSvOLzDRe9drUeTmiJqvtvHVPbWRtOze1Giz1lBJFgRjzm4TOvZP=w300",
             imbd_url:"http://www.imdb.com/title/tt0068646/"
         });
-
         movie.save(function(error) {
             if (error) console.log("error" + error.message);
             else console.log("no error");
             done();
         });
     });
-
     it("Find movie by title", function (done) {
         Movie.findOne({ title: "The Godfather" }, function(err, movie) {
             movie.title.should.eql("The Godfather");
@@ -41,7 +37,6 @@ describe("Movie", function() {
             done();
         });
     });
-
     afterEach(function(done) {
         Movie.remove({}, function() {
             done();

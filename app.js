@@ -12,6 +12,7 @@ Same that for a body-parser and mongoose
     $ npm install body-parser --save
     $ npm install mongoose --save
 */
+// Configuring Passport
 
 //Load Express.js Node framework
 var express = require("express"),
@@ -133,5 +134,5 @@ app.delete("/api/movies/:_id", function (req, res) {
     });
 });
 
-app.listen(4000);
-console.log("Running on port 4000...");
+app.listen(1337);
+console.log("Running on port 1337...");
