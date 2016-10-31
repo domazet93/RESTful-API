@@ -51,7 +51,7 @@ module.exports.getMovieByID = function (id, callback) {
     Movie.findById(id, callback);
 };
 module.exports.addMovie = function (movie, callback) {
-    Movie.create("movie", callback);
+    Movie.create(movie, callback);
 };
 module.exports.updateMovie = function (id, movie, options, callback) {
     var query = {
@@ -61,8 +61,8 @@ module.exports.updateMovie = function (id, movie, options, callback) {
         title: movie.title,
         genre: movie.genre,
         description: movie.description,
-        stars: movie.author,
-        duration: movie.publisher,
+        stars: movie.stars,
+        duration: movie.duration,
         image_url: movie.image_url,
         imbd_url: movie.buy_url
     };

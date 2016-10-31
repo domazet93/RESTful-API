@@ -24,6 +24,7 @@ var app = express();
 
 //We need to store result as a object in req.body -->
 //To use bodyParser() add this:
+app.use(express.static("web"));
 app.use(bodyParser.json());
 
 //Objects
@@ -37,9 +38,9 @@ var db = mongoose.connection;
 
 //The following examples illustrate defining routes
 //Respond to GET request on the root route (/), the application’s home page:
-app.get("/", function (req, res) {
-    res.send("Please use /api location.");
-});
+// app.get("/", function (req, res) {
+//     //res.send("Please use /api location.");
+// });
 //Respond to GET request on the root route (/genres)
 app.get("/api/genres", function (req, res) {
     Genres.getGenres(function (err, genres) {
@@ -105,9 +106,9 @@ app.get("/api/movies/:_id", function (req, res) {
         res.json(movie);
     });
 });
-app.post("/api/movies", function(req, res){
+app.post("/api/movies", function (req, res) {
     var movie = req.body;
-    Movies.addMovie(movie, function(err, movie){
+    Movies.addMovie(movie, function (err, movie) {
         if (err) {
             throw err;
         }

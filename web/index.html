@@ -8,26 +8,51 @@
 <body>
 
 <div id="container">
-    <h1>Cinema</h1>
 
-      <h2>new movie</h2>
-     <div id="add">
-         <img src="img/popcorn.svg" class="popcorn">
-        <label>Title:</label><input type="text" ><br/>
-        <label>Genre:</label><input type="text" ><br/>
-        <label>Stars:</label><input type="text"  ><br/>
-        <label>Duration:</label><input type="text" ><br/>
-        <label>Image URL:</label><input type="text" ><br/>
-        <label>IMBD:</label><input type="text"><br/>
-
-        <input type="submit" class="submit" name="submit" placeholder="password"><br />
-        <a href="#link">Show database</a>
+    <div id="spinner" class="view-body">
+        <img src="img/spinner.gif" class="spinner_gif">
     </div>
+    <div id="homeView" class="view-body">
+        <h1>Cinema</h1>
+            <h2>new movie</h2>
+
+            <img src="img/popcorn.svg" class="popcorn">
+            <label>Title:</label><input type="text" ><br/>
+            <label>Genre:</label><input type="text" ><br/>
+            <label>Stars:</label><input type="text"  ><br/>
+            <label>Duration:</label><input type="text" ><br/>
+            <label>Image URL:</label><input type="text" ><br/>
+            <label>IMBD:</label><input type="text"><br/>
+
+            <input type="submit" class="submit" name="submit" placeholder="password"><br />
+            <a href="#link" class="js-showDb">Show database</a>
+    </div>
+
+        <div id="showDb" class="view-body">
+        <script type="text/template" id="js-movieView">
+            <h1>Cinema</h1>
+            <h2>our database</h2>
+                <% _.each(movies, function(elem) { %>
+                <div id="singleMovie">
+                    <a href="#">
+                        <img src="<%- elem.image_url %>" class="load_img">
+                        <p class="purple"><%- elem.title %></p>
+                    </a>
+                 </div>
+                <% }) %>
+
+        </script>
+        </div>
 
 </div>
 
 <script type="text/javascript" src="js/libs/jquery.min.js"></script>
 <script type="text/javascript" src="js/libs/underscore.min.js"></script>
 <script type="text/javascript" src="js/libs/backbone.min.js"></script>
+
+<script type="text/javascript"  src="js/app.js"></script>
 </body>
 </html>
+
+
+<!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->

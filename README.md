@@ -37,10 +37,3 @@ Frontend: Backbone.js
     *delete by ID
         > db.movies.remove({_id: ObjectId("4f6f244f6f35438788aa138f")});
 
-
-###Install RESTEasy Chrome extension
-
-  It allows developers a way of being able to debug and analyze an Http request/response. You can select methods for making request, such as GET, POST, PUT, DELETE and use in our workshop.
-
-![alt text](https://github.com/domazet93/RESTful-API/blob/master/restEasy.gif)
-
