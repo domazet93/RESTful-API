@@ -22,8 +22,10 @@
   "homepage": "https://github.com/domazet93/RESTful-NODE.js#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "consolidate": "^0.14.1",
     "express": "^4.14.0",
     "mongoose": "^4.6.4",
+    "mustache": "^2.2.1",
     "passport": "~0.2.0",
     "passport-local": "~1.0.0"
   },

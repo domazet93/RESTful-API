@@ -1,6 +1,18 @@
-(function($){
+(function($) {
 
 "use strict";
+
+$(document).on("click", "a:not([data-bypass])", function(evt) {
+  var href = { prop: $(this).prop("href"), attr: $(this).attr("href") };
+  var root = location.protocol + "//" + location.host + Backbone.history.options.root;
+
+  if (href.prop && href.prop.slice(0, root.length) === root) {
+    evt.preventDefault();
+    Backbone.history.navigate(href.attr, true);
+  }
+});
+
+
 
 
 var baseUrl = "http://localhost:1337/api/";
@@ -23,7 +35,7 @@ var spinner = new (Backbone.View.extend({
             windowHeight = $(window).height();
 
         $spinner.css("margin-top", (spinnerHeight) /2);
-        $spinner.css("margin-left", ((windowHeight) /2 ) + 25);
+        $spinner.css("margin-left", ((windowHeight) /2 ) + 35);
     },
     show: function() {
         this.render();
@@ -36,53 +48,101 @@ var spinner = new (Backbone.View.extend({
     }
 }));
 
-var Screen = Backbone.View.extend({
-    show: function(previousView) {
-        $(".view-body").hide();
-        this.$el.show();
+var HomeView =  Backbone.View.extend({
+    className: "homeView",
+    events: {
+        "click .js-submit":"sendMovie"
+    },
+    template: _.template($("#js-homeView").html()),
+    sendMovie: function() {
+        var movie = {
+            title: $(".title").val(),
+            genre:$(".genre").val(),
+            description:$(".stars").val(),
+            stars: $(".stars").val(),
+            duration:$(".duration").val(),
+            image_url:$(".img_url").val(),
+            imbd_url: $(".imbd").val()
+        };
+
+        console.log(JSON.stringify(movie));
+        $.ajax({
+            url: getUrl("movies"),
+            contentType: "application/json",
+            data: JSON.stringify(movie),
+            method: "POST"
+        });
+    },
+    render: function() {
+        var self = this;
+        this.$el.html(self.template());
+        $('#container').empty().append(this.$el);
     }
 });
 
-var homeView = new (Screen.extend({
-    el: "#homeView",
+var databaseView =  Backbone.View.extend({
+    className: "showDb",
     events: {
-        "click .js-showDb": "showDb"
+        "click .js-back": "hide",
+        "click .js-movie": "showSingleMovie"
     },
+    template: _.template($("#js-movieView").html()),
     initialize: function() {
-        console.log("initialize homeView");
-        this.show();
-    },
-    showDb: function() {
-        console.log("click initialize");
         var self = this;
         this.movies = new MoviesCollection();
-
 
         spinner.show();
             this.movies.fetch({
                 success: function() {
-                    databaseView.render(self.movies);
+                    self.render(self.movies);
                 }
             }).always(function() {
                spinner.hide();
             });
-    }
-}));
 
-var databaseView =  new (Screen.extend({
-    el: "#showDb",
-    events: {
-        "click .js-back": "hide"
     },
-    template: _.template($("#js-movieView").html()),
     render: function(movies) {
-        this.show();
         this.$el.html(this.template({
             movies: movies.toJSON()
         }));
+        $('#container').empty().append(this.$el);
         console.log(movies.models);
-    }
-}));
+    },
+    showSingleMovie: function(e) {
+        var id = $(e.currentTarget).data(id).id;
+        console.log("Movie ID -->", id);
 
+        $.ajax({
+            url: getUrl("movies/") + id,
+            contentType: "application/json"
+        });
+    }
+});
+var ApplicationRouter = Backbone.Router.extend({
+    view: null,
+    routes: {
+      "": "homeRoute",
+      "db": "db"
+    },
+    closeCurrentView: function() {
+        if (this.view !== null) {
+            this.view.remove(); //destory
+        }
+    },
+    homeRoute: function() {
+        this.closeCurrentView();
+        console.log("Initialize homeRoute");
+        this.view = new HomeView();
+        this.view.render();
+    },
+    db: function() {
+        this.closeCurrentView();
+        this.view = new databaseView();
+        console.log("Initialize db");
+    }
+});
+
+var appRouter = new ApplicationRouter();
+Backbone.history.start({pushState: true});
 
 })(jQuery);

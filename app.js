@@ -19,12 +19,14 @@ var express = require("express"),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose");
 
+
 //app is an instance of express
 var app = express();
 
 //We need to store result as a object in req.body -->
 //To use bodyParser() add this:
-app.use(express.static("web"));
+
+
 app.use(bodyParser.json());
 
 //Objects
@@ -133,6 +135,13 @@ app.delete("/api/movies/:_id", function (req, res) {
         }
         res.json(movie);
     });
+});
+
+
+app.use(express.static(__dirname + "/web"));
+
+app.get("*", function (req, res) {
+    res.sendFile(__dirname + "/web/index.html");
 });
 
 app.listen(1337);

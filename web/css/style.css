@@ -41,10 +41,9 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
-
 body {
     font-family: 'Roboto Condensed', sans-serif;
+    background-color:#eee;
 }
 h1 {
     font-size: 30px;
@@ -54,58 +53,66 @@ h1 {
 h2 {
     text-align:center;
 }
-#container{
+#container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 50px 0px;
 }
-#homeView {
+.homeView {
     width:350px;
     margin: 8px auto;
     text-align:center;
     border:1px solid #bbb;
     padding: 25px;
     height: auto;
+    background-color:#fff;
 }
-#showDb{
+.showDb {
     width:620px;
     padding: 25px;
     height: auto;
     margin: 8px auto;
 }
-#showDb img {
+.showDb img {
     width: 150px;
     height:220px;
+    padding:10px 15px;
+    background-color:#fff;
+    border-radius: 3px;
 }
 #singleMovie {
     float:left;
     max-width:350px;
-    margin:25px;
+    margin:25px 10px;
 }
-#singleMovie a:hover{
+#singleMovie a:hover {
     text-decoration: underline;
 }
-#singleMovie p{
+#singleMovie p {
     text-align: center;
 }
-#singleMovie a{
+#singleMovie a {
     text-decoration: none;
 }
-
 input {
     padding:15px;
     width:90%;
 }
 input.submit {
-    width:193px;
     color:#fff;
     background-color: #65c;
     border:none;
-    margin: 10px 0;
+    margin: 30px 0;
+    width:100%;
+    cursor:pointer
 }
 label {
     margin: 10px 0;
     line-height:35px;
+}
+textarea {
+    padding:15px;
+    max-width: 320px;
 }
 .popcorn {
     width:80px;
@@ -117,7 +124,7 @@ label {
     color: #65c;
     font-weight: bold;
 }
-.spinner_gif{
+.spinner_gif {
     position:absolute;
 }
 .blurred {
