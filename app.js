@@ -17,9 +17,7 @@ Same that for a body-parser and mongoose
 //Load Express.js Node framework
 var express = require("express"),
     bodyParser = require("body-parser"),
-    mongoose = require("mongoose");
-
-
+    mongoose = require("mongoose")
 //app is an instance of express
 var app = express();
 
@@ -44,6 +42,8 @@ var db = mongoose.connection;
 //     //res.send("Please use /api location.");
 // });
 //Respond to GET request on the root route (/genres)
+
+
 app.get("/api/genres", function (req, res) {
     Genres.getGenres(function (err, genres) {
         if (err) {
@@ -138,10 +138,10 @@ app.delete("/api/movies/:_id", function (req, res) {
 });
 
 
-app.use(express.static(__dirname + "/web"));
+app.use(express.static("web"));
 
-app.get("*", function (req, res) {
-    res.sendFile(__dirname + "/web/index.html");
+app.get("*", function(req, res) {
+    res.sendFile("/web/index.html", { root: __dirname });
 });
 
 app.listen(1337);

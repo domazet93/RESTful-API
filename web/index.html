@@ -3,17 +3,16 @@
 <head>
     <title>Cinema</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
 <div id="container">
-
-    <div id="spinner" class="view-body">
-        <img src="img/spinner.gif" class="spinner_gif">
-    </div>
-
 </div>
+<div id="spinner">
+    <img src="img/spinner.gif" class="spinner_gif">
+</div>
+
 <script type="text/template" id="js-homeView">
     <form>
         <h1>Cinema</h1>
@@ -23,7 +22,7 @@
 
             <label>Title:</label><input type="text" class="title" ><br/>
             <label>Genre:</label><input type="text" class="genre" ><br/>
-            <label>Description:</label><textarea rows="4" cols="50" ></textarea><br/>
+            <label>Description:</label><textarea rows="4" cols="50" class="description"></textarea><br/>
             <label>Stars:</label><input type="text"  class="stars" ><br/>
             <label>Duration:</label><input type="text" class="duration" ><br/>
             <label>Image URL:</label><input type="text" class="img_url" ><br/>
@@ -36,20 +35,41 @@
 <script type="text/template" id="js-movieView">
     <h1>Cinema</h1>
     <h2>our database</h2>
-        <% _.each(movies, function(elem) { %>
+        <% if(movies.length == 0) {  %>
+            <h1 class="empty">EMPTY DATABASE</h1>
+            <img src="img/empty.svg" class="empty_svg">
+        <% } %>
+        <a  class="js-nextMovie"><img src="img/button.svg" class="button_back"></a>
+        <a  class="js-prevMovie"><img src="img/button.svg" class="button"></a>
+
         <div id="singleMovie">
-            <a href="#" class="js-movie" data-id="<%- elem._id %>">
-                <img src="<%- elem.image_url %>" class="load_img">
-                <p class="purple"><%- elem.title %></p>
+            <a href="db/<%- movies._id %>" class="js-movie" data-id="<%- movies._id %>">
+                <img src="<%- movies.image_url %>" class="load_img">
+                <p class="purple"><%- movies.title %></p>
             </a>
-         </div>
-        <% }) %>
+
+        </div>
+
 </script>
+<script type="text/template" id="js-singleMovie">
+    <div class="movie">
+        <div class="img_background">
+            <img src="<%- movie.image_url %>">
+        </div>
+            <h1><%- movie.title %></h1>
+            <p><%- movie.genre %></p>
+            <p><%- movie.duration %></p><br/>
+            <p class="desc"><%- movie.description %></p><br/>
+            <a href="<%- movie.imbd_url %>">IMBD</a><br/>
+            <a href="db" class="delete js-delete">DELETE</a>
+     </div>
+</script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
 
-<script type="text/javascript"  src="js/app.js"></script>
+<script type="text/javascript"  src="/js/app.js"></script>
 </body>
 </html>
 

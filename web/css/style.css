@@ -64,35 +64,29 @@ h2 {
     text-align:center;
     border:1px solid #bbb;
     padding: 25px;
-    height: auto;
     background-color:#fff;
 }
 .showDb {
-    width:620px;
-    padding: 25px;
-    height: auto;
+    width:350px;
     margin: 8px auto;
-}
-.showDb img {
-    width: 150px;
-    height:220px;
-    padding:10px 15px;
+    text-align:center;
+    border:1px solid #bbb;
+    padding: 25px 25px 225px;
+
     background-color:#fff;
-    border-radius: 3px;
 }
 #singleMovie {
-    float:left;
-    max-width:350px;
-    margin:25px 10px;
+    margin:25px 0;
 }
-#singleMovie a:hover {
-    text-decoration: underline;
-}
-#singleMovie p {
-    text-align: center;
+#singleMovie img {
+    width: 200px;
+    height:280px;
 }
 #singleMovie a {
     text-decoration: none;
+}
+#singleMovie a:hover {
+    text-decoration: underline;
 }
 input {
     padding:15px;
@@ -117,17 +111,89 @@ textarea {
 .popcorn {
     width:80px;
     position:absolute;
-    top:30px;
+    top: 30px;
     margin-left: -100px;
 }
 .purple {
     color: #65c;
     font-weight: bold;
 }
-.spinner_gif {
-    position:absolute;
+#spinner {
+    position: absolute;
+    display: none;
 }
 .blurred {
     -webkit-filter: blur(5px);
     -webkit-transition: -webkit-filter .50s;
+}
+.movie {
+    width:500px;
+    background-color: #fff;
+    border:1px solid #bbb;
+    padding: 25px;
+    margin: 8px auto;
+    position: relative;
+    text-align:center
+}
+.movie h2 {
+    margin: 10px 0;
+    text-align: left;
+}
+.movie h1 {
+    margin:20px 0 10px 0;
+    text-align:center;
+}
+.desc {
+    width: 300px;
+    display:block;
+    margin:auto;
+    text-align: center;
+}
+a {
+    text-decoration:none;
+}
+a.delete {
+    background-color: #fff;
+    padding: 10px 30px;
+    line-height: 70px;
+    color: #65c;
+    border:1px solid #65c;
+}
+a.delete:hover {
+    background-color: #65c;
+    color: #fff;
+    cursor: pointer;
+}
+.img_background{
+    width:500px;
+}
+.img_background img {
+    position: relative;
+    max-width: 500px;
+    margin:0 auto;
+    display:block;
+}
+.empty {
+    margin:55px 0px;
+}
+.empty_svg {
+    width:80px;
+    margin-bottom: 100px
+}
+.button {
+    position: absolute;
+    width:25px;
+    margin-left:-150px;
+    margin-top:150px;
+     -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+.button_back{
+    cursor: pointer;
+    position: absolute;
+    width:25px;
+    margin-left:120px;
+    margin-top:150px;
 }
