@@ -92,8 +92,8 @@
         },
         template: _.template($("#js-movieView").html()),
         initialize: function() {
-
-            var self = this,num;
+            var self = this,
+                num;
 
             this.movies = new MoviesCollection();
 
@@ -101,14 +101,18 @@
             this.movies.fetch({
                 success: function() {
                     self.render(self.movies);
+                    console.log("Succes--->",self.movies);
+                },
+                error: function() {
+                    console.log("Error");
                 }
             }).always(function() {
                 spinner.hide();
             });
         },
         render: function(movies) {
-
             var self = this;
+
             if(this.num == undefined || this.num > movies.length-1) {
                 this.num = 0;
             }
@@ -116,10 +120,10 @@
                 this.num = movies.length-1;
             }
 
-            console.log("Num --->", this.num);
             this.$el.html(this.template({
                 movies: movies.toJSON()[self.num]
             }));
+
             $("#container").append(this.$el);
         },
         nextMovie: function() {
@@ -131,7 +135,6 @@
             this.num--;
             this.render(this.movies);
         }
-
     });
     var SingleView = Backbone.View.extend({
         events: {
@@ -171,7 +174,7 @@
             "db": "db",
             "db/": "db",
             "db/:id": "singleMovie",
-            "db/:id/": "singleMovie",
+            "db/:id/": "singleMovie"
         },
         closeCurrentView: function() {
             if (this.view !== null) {
@@ -195,7 +198,6 @@
                 id: id
             });
         }
-
     });
     var appRouter = new ApplicationRouter();
     Backbone.history.start({ pushState: true });
