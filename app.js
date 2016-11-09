@@ -138,10 +138,10 @@ app.delete("/api/movies/:_id", function (req, res) {
 });
 
 
-app.use(express.static("web"));
+app.use(express.static("static"));
 
 app.get("*", function(req, res) {
-    res.sendFile("/web/index.html", { root: __dirname });
+    res.sendFile("/static/index.html", { root: __dirname });
 });
 
 app.listen(1337);

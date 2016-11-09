@@ -14,7 +14,7 @@ suite("Stress tests", function(){
              done();
          });
     });
-    test("Show database should handle 10000 requests in a second", function(done){
+    test("10000 requests in a second for database page ", function(done){
          var options = {
              url: "http://localhost:1337/db",
              concurrency: 4,
