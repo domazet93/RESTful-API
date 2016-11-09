@@ -4,7 +4,7 @@ RESTful API From Scratch Using Node, Express, Mongo DB and Backbone.js
 
 ###Getting Started
 
-Representational state transfer or RESTful web services is an arhitectural style for desigining network app, it's way of using HTTP protocol. In this project I use MEBN stack. Instead AngularJS I use BackboneJS on client-side.
+Representational state transfer or RESTful web services is an arhitectural style for designing network app, it's way of using HTTP protocol. In this project I use MEBN stack. Instead AngularJS I use BackboneJS on client-side.
 The application manage with CRUD (Create, Read, Update, Delete) operations.
 
 ###Prerequisites
