@@ -2,42 +2,43 @@
 
 RESTful API From Scratch Using Node, Express, Mongo DB and Backbone.js
 
-###Getting Started
+### Getting Started
 
 Representational state transfer or RESTful web services is an arhitectural style for designing network app, it's way of using HTTP protocol. In this project I use MEBN stack. Instead AngularJS I use BackboneJS on client-side.
 The application manage with CRUD (Create, Read, Update, Delete) operations.
 
-###Prerequisites
+### Prerequisites
 
 * Clone or download repo
 * Node.js
 
-
-###Server start
+### Install dependencies
 
     $ npm install
 
+### Server start
+
     npm start
 
-###Running the tests
+### Running the tests
 
     $ npm test
 
 
-###Built With
+### Built With
 * Express.js - creating routes
 * MongoDB - database
 * BackboneJS - frontend MV* framework
 * Mocha & Chai - running and writting tests
 
 ### Good to know - MongoDB
-####Start mongo in shell
+#### Start mongo in shell
 
     $ mongo
 
     > use cinema
 
-####Basic shell commands:
+#### Basic shell commands:
 
 select and use database:
 
